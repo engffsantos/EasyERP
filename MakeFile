@@ -1,0 +1,35 @@
+# Makefile
+
+.PHONY: run build up down logs shell test lint
+
+# Executa a aplicação localmente (sem docker)
+run:
+	python run.py
+
+# Build da imagem Docker
+build:
+	docker-compose build
+
+# Sobe os containers em segundo plano
+up:
+	docker-compose up -d
+
+# Derruba os containers
+down:
+	docker-compose down
+
+# Exibe os logs da aplicação
+logs:
+	docker-compose logs -f web
+
+# Acessa o container do app
+shell:
+	docker-compose exec web bash
+
+# Executa os testes unitários
+test:
+	pytest tests/
+
+# Executa o flake8 (lint)
+lint:
+	flake8 app tests

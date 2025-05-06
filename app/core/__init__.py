@@ -1,0 +1,1 @@
+#F:\Projetos_EasyData360\EasyERP\app\core\__init__.py

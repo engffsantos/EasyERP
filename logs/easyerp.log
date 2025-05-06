@@ -1,0 +1,1205 @@
+[2025-05-06 01:13:01,371] INFO in config: Logging configurado com sucesso.
+[2025-05-06 01:13:01,384] ERROR in __init__: Erro ao registrar blueprints: module 'app.financeiro.routes.financeiro_routes' has no attribute 'bp'
+[2025-05-06 01:15:10,170] INFO in config: Logging configurado com sucesso.
+[2025-05-06 01:15:10,188] ERROR in __init__: Erro ao registrar blueprints:
+Traceback (most recent call last):
+  File "F:\Projetos_EasyData360\EasyERP\app\__init__.py", line 60, in register_blueprints
+    app.register_blueprint(estoque_routes.bp)
+AttributeError: module 'app.estoque.routes.estoque_routes' has no attribute 'bp'
+[2025-05-06 01:16:16,792] INFO in config: Logging configurado com sucesso.
+[2025-05-06 01:16:16,811] ERROR in __init__: Erro ao registrar blueprints:
+Traceback (most recent call last):
+  File "F:\Projetos_EasyData360\EasyERP\app\__init__.py", line 63, in register_blueprints
+    app.register_blueprint(auth_api.bp, url_prefix="/api/v1")
+AttributeError: 'Blueprint' object has no attribute 'bp'
+[2025-05-06 01:17:32,318] INFO in config: Logging configurado com sucesso.
+[2025-05-06 01:17:32,338] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 01:17:32,361] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 01:17:32,362] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 01:17:33,846] INFO in config: Logging configurado com sucesso.
+[2025-05-06 01:17:33,866] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 01:17:33,884] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 01:17:33,885] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 01:22:59,507] ERROR in __init__: Erro inesperado
+Traceback (most recent call last):
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 146, in __init__
+    self._dbapi_connection = engine.raw_connection()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 3298, in raw_connection
+    return self.pool.connect()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 449, in connect
+    return _ConnectionFairy._checkout(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 713, in checkout
+    rec = pool._do_get()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\impl.py", line 179, in _do_get
+    with util.safe_reraise():
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\impl.py", line 177, in _do_get
+    return self._create_connection()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 390, in _create_connection
+    return _ConnectionRecord(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 675, in __init__
+    self.__connect()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 901, in __connect
+    with util.safe_reraise():
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 897, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\create.py", line 646, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 625, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "F:\Projetos_EasyData360\EasyERP\app\api\v1\auth_api.py", line 21, in login
+    usuario = Usuario.query.filter_by(email=email, ativo=True).first()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\query.py", line 2759, in first
+    return self.limit(1)._iter().first()  # type: ignore
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\query.py", line 2858, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
+    return self._execute_internal(
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 2241, in _execute_internal
+    conn = self._connection_for_bind(bind)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 2110, in _connection_for_bind
+    return trans._connection_for_bind(engine, execution_options)
+  File "<string>", line 2, in _connection_for_bind
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 1189, in _connection_for_bind
+    conn = bind.connect()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 3274, in connect
+    return self._connection_cls(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 148, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 2439, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 146, in __init__
+    self._dbapi_connection = engine.raw_connection()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 3298, in raw_connection
+    return self.pool.connect()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 449, in connect
+    return _ConnectionFairy._checkout(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 713, in checkout
+    rec = pool._do_get()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\impl.py", line 179, in _do_get
+    with util.safe_reraise():
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\impl.py", line 177, in _do_get
+    return self._create_connection()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 390, in _create_connection
+    return _ConnectionRecord(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 675, in __init__
+    self.__connect()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 901, in __connect
+    with util.safe_reraise():
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 897, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\create.py", line 646, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 625, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+[2025-05-06 01:33:16,859] ERROR in __init__: Erro inesperado
+Traceback (most recent call last):
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 146, in __init__
+    self._dbapi_connection = engine.raw_connection()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 3298, in raw_connection
+    return self.pool.connect()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 449, in connect
+    return _ConnectionFairy._checkout(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 713, in checkout
+    rec = pool._do_get()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\impl.py", line 179, in _do_get
+    with util.safe_reraise():
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\impl.py", line 177, in _do_get
+    return self._create_connection()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 390, in _create_connection
+    return _ConnectionRecord(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 675, in __init__
+    self.__connect()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 901, in __connect
+    with util.safe_reraise():
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 897, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\create.py", line 646, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 625, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "F:\Projetos_EasyData360\EasyERP\app\api\v1\auth_api.py", line 21, in login
+    usuario = Usuario.query.filter_by(email=email, ativo=True).first()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\query.py", line 2759, in first
+    return self.limit(1)._iter().first()  # type: ignore
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\query.py", line 2858, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
+    return self._execute_internal(
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 2241, in _execute_internal
+    conn = self._connection_for_bind(bind)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 2110, in _connection_for_bind
+    return trans._connection_for_bind(engine, execution_options)
+  File "<string>", line 2, in _connection_for_bind
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 1189, in _connection_for_bind
+    conn = bind.connect()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 3274, in connect
+    return self._connection_cls(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 148, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 2439, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 146, in __init__
+    self._dbapi_connection = engine.raw_connection()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 3298, in raw_connection
+    return self.pool.connect()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 449, in connect
+    return _ConnectionFairy._checkout(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 713, in checkout
+    rec = pool._do_get()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\impl.py", line 179, in _do_get
+    with util.safe_reraise():
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\impl.py", line 177, in _do_get
+    return self._create_connection()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 390, in _create_connection
+    return _ConnectionRecord(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 675, in __init__
+    self.__connect()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 901, in __connect
+    with util.safe_reraise():
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 897, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\create.py", line 646, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 625, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) 
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+[2025-05-06 01:33:40,890] INFO in config: Logging configurado com sucesso.
+[2025-05-06 01:33:40,911] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 01:33:40,930] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 01:33:40,931] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 01:33:42,366] INFO in config: Logging configurado com sucesso.
+[2025-05-06 01:33:42,386] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 01:33:42,404] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 01:33:42,404] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 01:33:47,532] ERROR in __init__: Erro inesperado
+Traceback (most recent call last):
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 146, in __init__
+    self._dbapi_connection = engine.raw_connection()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 3298, in raw_connection
+    return self.pool.connect()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 449, in connect
+    return _ConnectionFairy._checkout(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 713, in checkout
+    rec = pool._do_get()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\impl.py", line 179, in _do_get
+    with util.safe_reraise():
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\impl.py", line 177, in _do_get
+    return self._create_connection()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 390, in _create_connection
+    return _ConnectionRecord(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 675, in __init__
+    self.__connect()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 901, in __connect
+    with util.safe_reraise():
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 897, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\create.py", line 646, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 625, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "F:\Projetos_EasyData360\EasyERP\app\api\v1\auth_api.py", line 21, in login
+    usuario = Usuario.query.filter_by(email=email, ativo=True).first()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\query.py", line 2759, in first
+    return self.limit(1)._iter().first()  # type: ignore
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\query.py", line 2858, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
+    return self._execute_internal(
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 2241, in _execute_internal
+    conn = self._connection_for_bind(bind)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 2110, in _connection_for_bind
+    return trans._connection_for_bind(engine, execution_options)
+  File "<string>", line 2, in _connection_for_bind
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 1189, in _connection_for_bind
+    conn = bind.connect()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 3274, in connect
+    return self._connection_cls(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 148, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 2439, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 146, in __init__
+    self._dbapi_connection = engine.raw_connection()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 3298, in raw_connection
+    return self.pool.connect()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 449, in connect
+    return _ConnectionFairy._checkout(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 713, in checkout
+    rec = pool._do_get()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\impl.py", line 179, in _do_get
+    with util.safe_reraise():
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\impl.py", line 177, in _do_get
+    return self._create_connection()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 390, in _create_connection
+    return _ConnectionRecord(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 675, in __init__
+    self.__connect()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 901, in __connect
+    with util.safe_reraise():
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 897, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\create.py", line 646, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 625, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) 
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+[2025-05-06 01:43:48,885] INFO in config: Logging configurado com sucesso.
+[2025-05-06 01:43:48,907] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 01:43:48,925] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 01:43:48,926] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 01:43:50,386] INFO in config: Logging configurado com sucesso.
+[2025-05-06 01:43:50,407] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 01:43:50,425] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 01:43:50,426] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 01:44:26,451] INFO in config: Logging configurado com sucesso.
+[2025-05-06 01:44:26,471] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 01:44:26,490] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 01:44:26,491] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 01:44:27,940] INFO in config: Logging configurado com sucesso.
+[2025-05-06 01:44:27,961] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 01:44:27,981] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 01:44:27,982] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 01:44:35,509] ERROR in __init__: Erro inesperado
+Traceback (most recent call last):
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 146, in __init__
+    self._dbapi_connection = engine.raw_connection()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 3298, in raw_connection
+    return self.pool.connect()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 449, in connect
+    return _ConnectionFairy._checkout(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 713, in checkout
+    rec = pool._do_get()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\impl.py", line 179, in _do_get
+    with util.safe_reraise():
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\impl.py", line 177, in _do_get
+    return self._create_connection()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 390, in _create_connection
+    return _ConnectionRecord(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 675, in __init__
+    self.__connect()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 901, in __connect
+    with util.safe_reraise():
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 897, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\create.py", line 646, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 625, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "F:\Projetos_EasyData360\EasyERP\app\api\v1\auth_api.py", line 21, in login
+    usuario = Usuario.query.filter_by(email=email, ativo=True).first()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\query.py", line 2759, in first
+    return self.limit(1)._iter().first()  # type: ignore
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\query.py", line 2858, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
+    return self._execute_internal(
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 2241, in _execute_internal
+    conn = self._connection_for_bind(bind)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 2110, in _connection_for_bind
+    return trans._connection_for_bind(engine, execution_options)
+  File "<string>", line 2, in _connection_for_bind
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 1189, in _connection_for_bind
+    conn = bind.connect()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 3274, in connect
+    return self._connection_cls(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 148, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 2439, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 146, in __init__
+    self._dbapi_connection = engine.raw_connection()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 3298, in raw_connection
+    return self.pool.connect()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 449, in connect
+    return _ConnectionFairy._checkout(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 713, in checkout
+    rec = pool._do_get()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\impl.py", line 179, in _do_get
+    with util.safe_reraise():
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\impl.py", line 177, in _do_get
+    return self._create_connection()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 390, in _create_connection
+    return _ConnectionRecord(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 675, in __init__
+    self.__connect()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 901, in __connect
+    with util.safe_reraise():
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 897, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\create.py", line 646, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 625, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) 
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+[2025-05-06 01:48:08,923] INFO in config: Logging configurado com sucesso.
+[2025-05-06 01:48:08,949] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 01:48:08,968] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 01:48:08,969] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 01:48:10,453] INFO in config: Logging configurado com sucesso.
+[2025-05-06 01:48:10,478] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 01:48:10,498] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 01:48:10,499] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 01:48:22,020] ERROR in __init__: Erro inesperado
+Traceback (most recent call last):
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 146, in __init__
+    self._dbapi_connection = engine.raw_connection()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 3298, in raw_connection
+    return self.pool.connect()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 449, in connect
+    return _ConnectionFairy._checkout(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 713, in checkout
+    rec = pool._do_get()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\impl.py", line 179, in _do_get
+    with util.safe_reraise():
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\impl.py", line 177, in _do_get
+    return self._create_connection()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 390, in _create_connection
+    return _ConnectionRecord(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 675, in __init__
+    self.__connect()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 901, in __connect
+    with util.safe_reraise():
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 897, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\create.py", line 646, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 625, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "F:\Projetos_EasyData360\EasyERP\app\api\v1\auth_api.py", line 21, in login
+    usuario = Usuario.query.filter_by(email=email, ativo=True).first()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\query.py", line 2759, in first
+    return self.limit(1)._iter().first()  # type: ignore
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\query.py", line 2858, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
+    return self._execute_internal(
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 2241, in _execute_internal
+    conn = self._connection_for_bind(bind)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 2110, in _connection_for_bind
+    return trans._connection_for_bind(engine, execution_options)
+  File "<string>", line 2, in _connection_for_bind
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 1189, in _connection_for_bind
+    conn = bind.connect()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 3274, in connect
+    return self._connection_cls(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 148, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 2439, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 146, in __init__
+    self._dbapi_connection = engine.raw_connection()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 3298, in raw_connection
+    return self.pool.connect()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 449, in connect
+    return _ConnectionFairy._checkout(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 713, in checkout
+    rec = pool._do_get()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\impl.py", line 179, in _do_get
+    with util.safe_reraise():
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\impl.py", line 177, in _do_get
+    return self._create_connection()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 390, in _create_connection
+    return _ConnectionRecord(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 675, in __init__
+    self.__connect()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 901, in __connect
+    with util.safe_reraise():
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 897, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\create.py", line 646, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 625, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) 
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+[2025-05-06 02:04:40,301] INFO in config: Logging configurado com sucesso.
+[2025-05-06 02:04:40,507] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 02:04:40,528] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 02:04:40,529] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 02:04:42,086] INFO in config: Logging configurado com sucesso.
+[2025-05-06 02:04:42,107] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 02:04:42,128] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 02:04:42,129] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 02:05:11,395] ERROR in __init__: Erro inesperado
+Traceback (most recent call last):
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 146, in __init__
+    self._dbapi_connection = engine.raw_connection()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 3298, in raw_connection
+    return self.pool.connect()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 449, in connect
+    return _ConnectionFairy._checkout(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 713, in checkout
+    rec = pool._do_get()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\impl.py", line 179, in _do_get
+    with util.safe_reraise():
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\impl.py", line 177, in _do_get
+    return self._create_connection()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 390, in _create_connection
+    return _ConnectionRecord(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 675, in __init__
+    self.__connect()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 901, in __connect
+    with util.safe_reraise():
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 897, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\create.py", line 646, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 625, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "F:\Projetos_EasyData360\EasyERP\app\api\v1\auth_api.py", line 21, in login
+    usuario = Usuario.query.filter_by(email=email, ativo=True).first()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\query.py", line 2759, in first
+    return self.limit(1)._iter().first()  # type: ignore
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\query.py", line 2858, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
+    return self._execute_internal(
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 2241, in _execute_internal
+    conn = self._connection_for_bind(bind)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 2110, in _connection_for_bind
+    return trans._connection_for_bind(engine, execution_options)
+  File "<string>", line 2, in _connection_for_bind
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 1189, in _connection_for_bind
+    conn = bind.connect()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 3274, in connect
+    return self._connection_cls(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 148, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 2439, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 146, in __init__
+    self._dbapi_connection = engine.raw_connection()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 3298, in raw_connection
+    return self.pool.connect()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 449, in connect
+    return _ConnectionFairy._checkout(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 713, in checkout
+    rec = pool._do_get()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\impl.py", line 179, in _do_get
+    with util.safe_reraise():
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\impl.py", line 177, in _do_get
+    return self._create_connection()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 390, in _create_connection
+    return _ConnectionRecord(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 675, in __init__
+    self.__connect()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 901, in __connect
+    with util.safe_reraise():
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 897, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\create.py", line 646, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 625, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) 
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+[2025-05-06 02:07:40,447] INFO in config: Logging configurado com sucesso.
+[2025-05-06 02:07:40,468] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 02:07:40,488] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 02:07:40,489] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 02:07:41,995] INFO in config: Logging configurado com sucesso.
+[2025-05-06 02:07:42,017] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 02:07:42,037] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 02:07:42,038] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 02:09:24,526] INFO in config: Logging configurado com sucesso.
+[2025-05-06 02:09:24,547] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 02:09:24,568] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 02:09:24,569] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 02:09:26,081] INFO in config: Logging configurado com sucesso.
+[2025-05-06 02:09:26,104] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 02:09:26,124] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 02:09:26,125] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 02:10:27,871] INFO in config: Logging configurado com sucesso.
+[2025-05-06 02:10:27,909] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 02:10:44,184] INFO in config: Logging configurado com sucesso.
+[2025-05-06 02:10:44,207] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 02:10:44,224] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 02:10:44,225] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 02:10:45,717] INFO in config: Logging configurado com sucesso.
+[2025-05-06 02:10:45,738] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 02:10:45,757] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 02:10:45,758] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 02:10:55,151] ERROR in __init__: Erro inesperado
+Traceback (most recent call last):
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 146, in __init__
+    self._dbapi_connection = engine.raw_connection()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 3298, in raw_connection
+    return self.pool.connect()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 449, in connect
+    return _ConnectionFairy._checkout(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 713, in checkout
+    rec = pool._do_get()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\impl.py", line 179, in _do_get
+    with util.safe_reraise():
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\impl.py", line 177, in _do_get
+    return self._create_connection()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 390, in _create_connection
+    return _ConnectionRecord(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 675, in __init__
+    self.__connect()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 901, in __connect
+    with util.safe_reraise():
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 897, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\create.py", line 646, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 625, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "F:\Projetos_EasyData360\EasyERP\app\api\v1\auth_api.py", line 21, in login
+    usuario = Usuario.query.filter_by(email=email, ativo=True).first()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\query.py", line 2759, in first
+    return self.limit(1)._iter().first()  # type: ignore
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\query.py", line 2858, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
+    return self._execute_internal(
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 2241, in _execute_internal
+    conn = self._connection_for_bind(bind)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 2110, in _connection_for_bind
+    return trans._connection_for_bind(engine, execution_options)
+  File "<string>", line 2, in _connection_for_bind
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 1189, in _connection_for_bind
+    conn = bind.connect()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 3274, in connect
+    return self._connection_cls(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 148, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 2439, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 146, in __init__
+    self._dbapi_connection = engine.raw_connection()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 3298, in raw_connection
+    return self.pool.connect()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 449, in connect
+    return _ConnectionFairy._checkout(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 713, in checkout
+    rec = pool._do_get()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\impl.py", line 179, in _do_get
+    with util.safe_reraise():
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\impl.py", line 177, in _do_get
+    return self._create_connection()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 390, in _create_connection
+    return _ConnectionRecord(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 675, in __init__
+    self.__connect()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 901, in __connect
+    with util.safe_reraise():
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\pool\base.py", line 897, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\create.py", line 646, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 625, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) 
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+[2025-05-06 02:11:03,529] INFO in config: Logging configurado com sucesso.
+[2025-05-06 02:11:03,550] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 02:11:30,325] INFO in config: Logging configurado com sucesso.
+[2025-05-06 02:11:30,351] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 02:11:58,052] INFO in config: Logging configurado com sucesso.
+[2025-05-06 02:11:58,074] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 02:11:59,169] INFO in config: Logging configurado com sucesso.
+[2025-05-06 02:11:59,190] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 02:12:30,516] INFO in config: Logging configurado com sucesso.
+[2025-05-06 02:12:30,539] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 02:12:31,351] INFO in config: Logging configurado com sucesso.
+[2025-05-06 02:12:31,373] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 02:12:32,091] INFO in config: Logging configurado com sucesso.
+[2025-05-06 02:12:32,113] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 02:13:44,038] INFO in config: Logging configurado com sucesso.
+[2025-05-06 02:13:44,059] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 02:13:55,496] INFO in config: Logging configurado com sucesso.
+[2025-05-06 02:13:55,517] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 02:17:41,943] INFO in config: Logging configurado com sucesso.
+[2025-05-06 02:17:41,965] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 02:19:40,079] INFO in config: Logging configurado com sucesso.
+[2025-05-06 02:19:40,101] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 10:14:43,652] INFO in config: Logging configurado com sucesso.
+[2025-05-06 10:14:43,781] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 10:14:43,800] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 10:14:43,801] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 10:14:45,342] INFO in config: Logging configurado com sucesso.
+[2025-05-06 10:14:45,363] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 10:14:45,383] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 10:14:45,384] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 10:18:51,678] INFO in config: Logging configurado com sucesso.
+[2025-05-06 10:18:51,703] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 10:21:13,527] INFO in config: Logging configurado com sucesso.
+[2025-05-06 10:21:13,553] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 10:26:34,310] INFO in config: Logging configurado com sucesso.
+[2025-05-06 10:26:34,332] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 10:26:34,352] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 10:26:34,353] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 10:26:36,748] INFO in config: Logging configurado com sucesso.
+[2025-05-06 10:26:36,770] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 10:26:36,790] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 10:26:36,791] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 10:26:49,167] INFO in config: Logging configurado com sucesso.
+[2025-05-06 10:26:49,189] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 10:27:27,425] INFO in config: Logging configurado com sucesso.
+[2025-05-06 10:27:27,445] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 10:27:27,464] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 10:27:27,464] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 10:27:28,310] INFO in config: Logging configurado com sucesso.
+[2025-05-06 10:27:28,332] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 10:27:38,477] INFO in config: Logging configurado com sucesso.
+[2025-05-06 10:27:38,499] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 10:27:41,984] INFO in config: Logging configurado com sucesso.
+[2025-05-06 10:27:42,005] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 10:27:42,024] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 10:27:42,025] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 10:27:43,566] INFO in config: Logging configurado com sucesso.
+[2025-05-06 10:27:43,587] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 10:27:43,607] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 10:27:43,607] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 10:27:47,114] INFO in config: Logging configurado com sucesso.
+[2025-05-06 10:27:47,136] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 10:27:54,445] INFO in config: Logging configurado com sucesso.
+[2025-05-06 10:27:54,466] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 10:28:12,473] INFO in config: Logging configurado com sucesso.
+[2025-05-06 10:28:12,494] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 10:28:46,795] INFO in config: Logging configurado com sucesso.
+[2025-05-06 10:28:46,816] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 10:28:46,837] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 10:28:46,837] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 10:28:54,535] INFO in config: Logging configurado com sucesso.
+[2025-05-06 10:28:54,556] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 10:28:54,575] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 10:28:54,576] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 10:28:56,123] INFO in config: Logging configurado com sucesso.
+[2025-05-06 10:28:56,144] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 10:28:56,165] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 10:28:56,166] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 10:29:00,424] INFO in config: Logging configurado com sucesso.
+[2025-05-06 10:29:00,445] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 10:29:07,779] INFO in config: Logging configurado com sucesso.
+[2025-05-06 10:29:07,801] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 10:29:26,317] INFO in config: Logging configurado com sucesso.
+[2025-05-06 10:29:26,338] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 10:29:38,004] INFO in config: Logging configurado com sucesso.
+[2025-05-06 10:29:38,026] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 10:38:07,040] INFO in config: Logging configurado com sucesso.
+[2025-05-06 10:38:07,062] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 10:50:07,872] INFO in config: Logging configurado com sucesso.
+[2025-05-06 10:50:07,894] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 10:50:17,360] INFO in config: Logging configurado com sucesso.
+[2025-05-06 10:50:17,382] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 10:52:20,563] INFO in config: Logging configurado com sucesso.
+[2025-05-06 10:52:20,584] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 10:52:20,604] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 10:52:20,605] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 10:54:48,510] INFO in config: Logging configurado com sucesso.
+[2025-05-06 10:54:48,549] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 10:54:48,551] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 10:54:48,552] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 10:54:53,664] ERROR in __init__: Erro inesperado
+Traceback (most recent call last):
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "F:\Projetos_EasyData360\EasyERP\app\core\routes\user_interface_routes.py", line 31, in novo_usuario
+    return render_template("usuarios/novo.html")
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\templating.py", line 64, in get_source
+    return self._get_source_fast(environment, template)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: usuarios/novo.html
+[2025-05-06 10:55:40,314] INFO in config: Logging configurado com sucesso.
+[2025-05-06 10:55:40,355] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 10:55:40,357] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 10:55:40,357] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 10:55:40,762] ERROR in __init__: Erro inesperado
+Traceback (most recent call last):
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "F:\Projetos_EasyData360\EasyERP\app\core\routes\user_interface_routes.py", line 31, in novo_usuario
+    return render_template("users/novo.html")
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\templating.py", line 64, in get_source
+    return self._get_source_fast(environment, template)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: users/novo.html
+[2025-05-06 10:56:30,327] ERROR in __init__: Erro inesperado
+Traceback (most recent call last):
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "F:\Projetos_EasyData360\EasyERP\app\core\routes\user_interface_routes.py", line 31, in novo_usuario
+    return render_template("users/novo.html")
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\templating.py", line 64, in get_source
+    return self._get_source_fast(environment, template)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: users/novo.html
+[2025-05-06 10:56:32,179] ERROR in __init__: Erro inesperado
+Traceback (most recent call last):
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "F:\Projetos_EasyData360\EasyERP\app\core\routes\user_interface_routes.py", line 31, in novo_usuario
+    return render_template("users/novo.html")
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\templating.py", line 64, in get_source
+    return self._get_source_fast(environment, template)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: users/novo.html
+[2025-05-06 10:57:43,744] INFO in config: Logging configurado com sucesso.
+[2025-05-06 10:57:43,784] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 10:57:43,786] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 10:57:43,787] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 10:58:00,235] ERROR in __init__: Erro inesperado
+Traceback (most recent call last):
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "F:\Projetos_EasyData360\EasyERP\app\core\routes\user_interface_routes.py", line 31, in novo_usuario
+    return render_template("users/novo.html")
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\templating.py", line 64, in get_source
+    return self._get_source_fast(environment, template)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: users/novo.html
+[2025-05-06 10:58:28,083] ERROR in __init__: Erro inesperado
+Traceback (most recent call last):
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "F:\Projetos_EasyData360\EasyERP\app\core\routes\user_interface_routes.py", line 31, in novo_usuario
+    return render_template("users/novo.html")
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\templating.py", line 64, in get_source
+    return self._get_source_fast(environment, template)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: users/novo.html
+[2025-05-06 11:01:42,513] INFO in config: Logging configurado com sucesso.
+[2025-05-06 11:01:42,551] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 11:01:42,553] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 11:01:42,554] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 11:01:44,685] ERROR in __init__: Erro inesperado
+Traceback (most recent call last):
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "F:\Projetos_EasyData360\EasyERP\app\core\routes\user_interface_routes.py", line 31, in novo_usuario
+    return render_template("core/users/novo.html")
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\templating.py", line 64, in get_source
+    return self._get_source_fast(environment, template)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: core/users/novo.html
+[2025-05-06 11:06:41,097] INFO in config: Logging configurado com sucesso.
+[2025-05-06 11:06:41,137] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 11:06:41,140] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 11:06:41,140] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 11:08:42,407] INFO in config: Logging configurado com sucesso.
+[2025-05-06 11:08:42,448] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 11:08:42,450] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 11:08:42,451] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 11:11:34,554] INFO in config: Logging configurado com sucesso.
+[2025-05-06 11:11:34,593] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 11:11:34,595] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 11:11:34,596] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 11:11:37,938] ERROR in __init__: Erro inesperado
+Traceback (most recent call last):
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "F:\Projetos_EasyData360\EasyERP\app\core\routes\user_interface_routes.py", line 13, in criar_usuario
+    return render_template("/app/core/templates/core/users/novo.html")
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\templating.py", line 64, in get_source
+    return self._get_source_fast(environment, template)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: /app/core/templates/core/users/novo.html
+[2025-05-06 11:14:48,070] INFO in config: Logging configurado com sucesso.
+[2025-05-06 11:14:48,108] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 11:14:48,110] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 11:14:48,111] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 11:14:48,159] ERROR in __init__: Erro inesperado
+Traceback (most recent call last):
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "F:\Projetos_EasyData360\EasyERP\app\core\routes\user_interface_routes.py", line 13, in criar_usuario
+    return render_template("core/users/novo.html")
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\templating.py", line 64, in get_source
+    return self._get_source_fast(environment, template)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: core/users/novo.html
+[2025-05-06 11:16:14,177] INFO in config: Logging configurado com sucesso.
+[2025-05-06 11:16:14,226] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 11:16:14,229] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 11:16:14,230] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 11:16:14,775] ERROR in __init__: Erro inesperado
+Traceback (most recent call last):
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "F:\Projetos_EasyData360\EasyERP\app\core\routes\user_interface_routes.py", line 13, in criar_usuario
+    return render_template("core/users/novo.html")
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\templating.py", line 64, in get_source
+    return self._get_source_fast(environment, template)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: core/users/novo.html
+[2025-05-06 11:16:29,671] INFO in config: Logging configurado com sucesso.
+[2025-05-06 11:16:29,712] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 11:16:29,714] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 11:16:29,715] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 11:17:03,810] INFO in config: Logging configurado com sucesso.
+[2025-05-06 11:17:03,850] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 11:17:03,852] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 11:17:03,853] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 11:18:27,863] INFO in config: Logging configurado com sucesso.
+[2025-05-06 11:18:27,904] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 11:18:27,906] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 11:18:27,906] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 11:20:15,466] INFO in config: Logging configurado com sucesso.
+[2025-05-06 11:20:15,505] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 11:20:15,507] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 11:20:15,508] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 11:20:17,022] INFO in config: Logging configurado com sucesso.
+[2025-05-06 11:20:17,061] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 11:20:17,063] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 11:20:17,064] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 11:28:41,927] INFO in config: Logging configurado com sucesso.
+[2025-05-06 11:28:41,967] INFO in __init__: Todos os blueprints foram registrados com sucesso.
+[2025-05-06 11:28:41,969] INFO in scheduler: Agendador de tarefas iniciado.
+[2025-05-06 11:28:41,970] INFO in scheduler: Jobs agendados com sucesso.
+[2025-05-06 11:28:46,124] ERROR in __init__: Erro inesperado
+Traceback (most recent call last):
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "F:\Projetos_EasyData360\EasyERP\app\core\controllers\auth_controller.py", line 23, in login_form
+    return render_template("login.html")
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\templating.py", line 64, in get_source
+    return self._get_source_fast(environment, template)
+  File "F:\Projetos_EasyData360\EasyERP\.venv\lib\site-packages\flask\templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: login.html

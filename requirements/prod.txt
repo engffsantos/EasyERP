@@ -1,0 +1,5 @@
+# Ambiente de Produção
+-r base.txt
+
+# WSGI server
+gunicorn>=21.2

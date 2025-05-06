@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Editar Usuário - EasyERP{% endblock %}
+
+{% block head %}
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+{% block navbar %}{% endblock %}
+
+{% block content %}
+<div class="login-container">
+  <div class="login-card" style="width: 100%; max-width: 600px;">
+    <h2 class="mb-4">Editar Usuário</h2>
+    <form method="POST" action="{{ url_for('usuarios.atualizar_usuario', usuario_id=usuario.id) }}" class="login-form">
+
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" name="nome" value="{{ usuario.nome }}" required>
+
+      <label for="email">E-mail</label>
+      <input type="email" id="email" name="email" value="{{ usuario.email }}" required>
+
+      <label for="perfil_id">Perfil</label>
+      <select id="perfil_id" name="perfil_id" required class="form-select" style="padding: 12px; margin-bottom: 20px; border-radius: 8px;">
+        {% for perfil in perfis %}
+          <option value="{{ perfil.id }}" {% if usuario.perfil_id == perfil.id %}selected{% endif %}>{{ perfil.nome }}</option>
+        {% endfor %}
+      </select>
+
+      <label for="supervisor_id">Supervisor</label>
+      <select id="supervisor_id" name="supervisor_id" class="form-select" style="padding: 12px; margin-bottom: 20px; border-radius: 8px;">
+        <option value="">Sem supervisor</option>
+        {% for supervisor in supervisores %}
+          <option value="{{ supervisor.id }}" {% if usuario.supervisor_id == supervisor.id %}selected{% endif %}>{{ supervisor.nome }}</option>
+        {% endfor %}
+      </select>
+
+      <label class="form-check-label mb-3">
+        <input type="checkbox" name="ativo" value="true" {% if usuario.ativo %}checked{% endif %}>
+        Usuário ativo
+      </label>
+
+      {% if error %}
+        <div class="alert alert-danger">{{ error }}</div>
+      {% endif %}
+
+      <button type="submit">Salvar Alterações</button>
+      <a href="{{ url_for('usuarios.listar_usuarios') }}" class="esqueci-senha">← Voltar à lista</a>
+    </form>
+    <footer style="margin-top: 20px;">
+      © {{ current_year }} EasyData360 – Todos os direitos reservados
+    </footer>
+  </div>
+</div>
+{% endblock %}

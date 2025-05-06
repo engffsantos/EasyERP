@@ -1,0 +1,64 @@
+<!-- app/shared/templates/components/data_table.html -->
+
+<div class="table-container">
+  <table class="data-table">
+    <thead>
+      <tr>
+        {% for col in colunas %}
+          <th>{{ col }}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for linha in dados %}
+        <tr>
+          {% for valor in linha %}
+            <td>{{ valor }}</td>
+          {% endfor %}
+        </tr>
+      {% else %}
+        <tr>
+          <td colspan="{{ colunas|length }}" class="sem-dados">Nenhum dado encontrado.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<style>
+  .table-container {
+    overflow-x: auto;
+    margin-top: 20px;
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .data-table thead {
+    background-color: #007BFF;
+    color: white;
+  }
+
+  .data-table th, .data-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+  }
+
+  .data-table tr:hover {
+    background-color: #f1f1f1;
+  }
+
+  .sem-dados {
+    text-align: center;
+    color: #666;
+    padding: 20px;
+  }
+</style>

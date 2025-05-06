@@ -1,0 +1,29 @@
+[flake8]
+# Limite máximo de caracteres por linha
+max-line-length = 100
+
+# Ignorar erros específicos
+# E203 e W503 são ignorados para compatibilidade com o Black
+ignore =
+    E203,
+    W503
+
+# Diretórios e arquivos que não devem ser analisados
+exclude =
+    .git,
+    __pycache__,
+    build,
+    dist,
+    migrations,
+    instance,
+    venv,
+    env,
+    *.pyc,
+    *.egg-info,
+    .venv
+
+# Ativa checagem de nomes de variáveis, funções e classes
+enable-extensions = G
+
+# Mostra a complexidade de cada função
+max-complexity = 10

@@ -1,0 +1,212 @@
+// =================== CORE ===================
+Table usuarios {
+  id uuid [pk, default: 'uuid_generate_v4()']
+  nome varchar
+  email varchar [unique]
+  senha_hash varchar
+  perfil_id uuid [ref: > perfis.id]
+  supervisor_id uuid [ref: > usuarios.id, note: 'Usuário superior hierárquico']
+  ativo boolean [default: true]
+  criado_em timestamp [default: 'now()']
+  atualizado_em timestamp
+  Indexes {
+    (email)
+  }
+}
+
+Table perfis {
+  id uuid [pk, default: 'uuid_generate_v4()']
+  nome varchar
+  descricao text
+  ativo boolean [default: true]
+  criado_em timestamp [default: 'now()']
+  atualizado_em timestamp
+}
+
+Table permissoes {
+  id uuid [pk, default: 'uuid_generate_v4()']
+  nome varchar
+  descricao text
+  criado_em timestamp [default: 'now()']
+  atualizado_em timestamp
+}
+
+Table perfil_permissao {
+  id uuid [pk, default: 'uuid_generate_v4()']
+  perfil_id uuid [ref: > perfis.id]
+  permissao_id uuid [ref: > permissoes.id]
+  criado_em timestamp [default: 'now()']
+  atualizado_em timestamp
+}
+
+// =================== FINANCEIRO ===================
+Table contas {
+  id uuid [pk, default: 'uuid_generate_v4()']
+  nome varchar
+  tipo varchar
+  banco varchar
+  saldo_inicial numeric
+  saldo_atual numeric
+  criado_em timestamp [default: 'now()']
+  atualizado_em timestamp
+}
+
+Table categorias_financeiras {
+  id uuid [pk, default: 'uuid_generate_v4()']
+  nome varchar
+  tipo varchar // 'receita' ou 'despesa'
+  criado_em timestamp [default: 'now()']
+  atualizado_em timestamp
+}
+
+Table lancamentos {
+  id uuid [pk, default: 'uuid_generate_v4()']
+  descricao varchar
+  valor numeric
+  tipo varchar // 'receita' ou 'despesa'
+  recorrente boolean [default: false]
+  data_vencimento date
+  data_pagamento date
+  codigo_barras varchar
+  nota_fiscal varchar
+  categoria_id uuid [ref: > categorias_financeiras.id]
+  conta_id uuid [ref: > contas.id]
+  usuario_id uuid [ref: > usuarios.id]
+  criado_em timestamp [default: 'now()']
+  atualizado_em timestamp
+}
+
+Table transferencias {
+  id uuid [pk, default: 'uuid_generate_v4()']
+  conta_origem_id uuid [ref: > contas.id]
+  conta_destino_id uuid [ref: > contas.id]
+  valor numeric
+  data date
+  descricao text
+  usuario_id uuid [ref: > usuarios.id]
+  criado_em timestamp [default: 'now()']
+  atualizado_em timestamp
+}
+
+// =================== VENDAS & CRM ===================
+Table clientes {
+  id uuid [pk, default: 'uuid_generate_v4()']
+  nome varchar
+  email varchar
+  telefone varchar
+  empresa varchar
+  criado_em timestamp [default: 'now()']
+  atualizado_em timestamp
+}
+
+Table produtos {
+  id uuid [pk, default: 'uuid_generate_v4()']
+  nome varchar
+  descricao text
+  preco_unitario numeric
+  criado_em timestamp [default: 'now()']
+  atualizado_em timestamp
+}
+
+Table oportunidades {
+  id uuid [pk, default: 'uuid_generate_v4()']
+  titulo varchar
+  descricao text
+  valor_estimado numeric
+  status varchar // 'aberta', 'em negociação', 'ganha', 'perdida'
+  probabilidade int [note: '0 a 100%']
+  cliente_id uuid [ref: > clientes.id]
+  usuario_responsavel uuid [ref: > usuarios.id]
+  criado_em timestamp [default: 'now()']
+  atualizado_em timestamp
+}
+
+Table oportunidade_status_log {
+  id uuid [pk, default: 'uuid_generate_v4()']
+  oportunidade_id uuid [ref: > oportunidades.id]
+  status_anterior varchar
+  status_novo varchar
+  alterado_em timestamp [default: 'now()']
+  alterado_por uuid [ref: > usuarios.id]
+}
+
+Table oportunidade_produto {
+  id uuid [pk, default: 'uuid_generate_v4()']
+  oportunidade_id uuid [ref: > oportunidades.id]
+  produto_id uuid [ref: > produtos.id]
+  quantidade int
+  preco_unitario numeric
+}
+
+Table interacoes {
+  id uuid [pk, default: 'uuid_generate_v4()']
+  tipo varchar // 'email', 'ligacao', 'reuniao'
+  descricao text
+  data timestamp
+  cliente_id uuid [ref: > clientes.id]
+  usuario_id uuid [ref: > usuarios.id]
+  criado_em timestamp [default: 'now()']
+}
+
+// =================== ESTOQUE ===================
+Table armazens {
+  id uuid [pk, default: 'uuid_generate_v4()']
+  nome varchar
+  localizacao varchar
+  criado_em timestamp [default: 'now()']
+  atualizado_em timestamp
+}
+
+Table produtos_estoque {
+  id uuid [pk, default: 'uuid_generate_v4()']
+  produto_id uuid [ref: > produtos.id]
+  armazem_id uuid [ref: > armazens.id]
+  quantidade numeric
+  estoque_minimo numeric
+  estoque_maximo numeric
+  criado_em timestamp [default: 'now()']
+  atualizado_em timestamp
+  Note: 'Controla o nível de estoque por produto e armazém'
+}
+
+Table movimentacoes_estoque {
+  id uuid [pk, default: 'uuid_generate_v4()']
+  tipo varchar // 'entrada', 'saida', 'ajuste', 'transferencia'
+  produto_id uuid [ref: > produtos.id]
+  armazem_origem_id uuid [ref: > armazens.id]
+  armazem_destino_id uuid [ref: > armazens.id]
+  quantidade numeric
+  motivo varchar
+  data_movimentacao timestamp [default: 'now()']
+  usuario_id uuid [ref: > usuarios.id]
+  criado_em timestamp [default: 'now()']
+  atualizado_em timestamp
+}
+
+Table fornecedores {
+  id uuid [pk, default: 'uuid_generate_v4()']
+  nome varchar
+  cnpj varchar
+  contato varchar
+  email varchar
+  criado_em timestamp [default: 'now()']
+  atualizado_em timestamp
+}
+
+Table compras {
+  id uuid [pk, default: 'uuid_generate_v4()']
+  fornecedor_id uuid [ref: > fornecedores.id]
+  data_compra date
+  valor_total numeric
+  status varchar // 'pendente', 'recebido', 'cancelado'
+  criado_em timestamp [default: 'now()']
+  atualizado_em timestamp
+}
+
+Table compras_itens {
+  id uuid [pk, default: 'uuid_generate_v4()']
+  compra_id uuid [ref: > compras.id]
+  produto_id uuid [ref: > produtos.id]
+  quantidade numeric
+  preco_unitario numeric
+}

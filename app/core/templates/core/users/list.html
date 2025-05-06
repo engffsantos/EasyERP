@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}Usuários - EasyERP{% endblock %}
+
+{% block head %}
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+{% block navbar %}{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="login-card" style="width: 100%; max-width: 1000px;">
+    <h2 style="margin-bottom: 20px;">Usuários Ativos</h2>
+
+    <div class="d-flex justify-content-end mb-3">
+      <a href="{{ url_for('usuarios.criar_usuario') }}" class="btn btn-primary">+ Novo Usuário</a>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-dark table-bordered table-striped" style="background-color: #0A192F;">
+        <thead style="background-color: #112D4E;">
+          <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Perfil</th>
+            <th>Supervisor</th>
+            <th>Status</th>
+            <th style="width: 160px;">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for usuario in usuarios %}
+          <tr>
+            <td>{{ usuario.nome }}</td>
+            <td>{{ usuario.email }}</td>
+            <td>{{ usuario.perfil.nome if usuario.perfil else '—' }}</td>
+            <td>{{ usuario.supervisor.nome if usuario.supervisor else '—' }}</td>
+            <td>
+              {% if usuario.ativo %}
+                <span class="badge bg-success">Ativo</span>
+              {% else %}
+                <span class="badge bg-secondary">Inativo</span>
+              {% endif %}
+            </td>
+            <td>
+              <a href="{{ url_for('usuarios.obter_usuario', usuario_id=usuario.id) }}" class="btn btn-sm btn-info">Ver</a>
+              <a href="{{ url_for('usuarios.atualizar_usuario', usuario_id=usuario.id) }}" class="btn btn-sm btn-warning">Editar</a>
+              <form method="POST" action="{{ url_for('usuarios.desativar_usuario', usuario_id=usuario.id) }}" class="d-inline">
+                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Deseja realmente desativar este usuário?')">Desativar</button>
+              </form>
+            </td>
+          </tr>
+          {% else %}
+          <tr>
+            <td colspan="6" class="text-center text-muted">Nenhum usuário encontrado.</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

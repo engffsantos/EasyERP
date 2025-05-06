@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}EasyERP{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonte padrão e estilos globais -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  {% block head %}{% endblock %}
+</head>
+<body>
+  <div class="app-container">
+
+    <!-- Cabeçalho -->
+    <header class="app-header">
+      <h1 class="app-logo">EasyERP</h1>
+      {% block header %}{% endblock %}
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main class="app-main">
+      {% block content %}
+      <p>Conteúdo padrão.</p>
+      {% endblock %}
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="app-footer">
+      <p>© 2025 EasyData360 – Todos os direitos reservados</p>
+    </footer>
+  </div>
+
+  <!-- Scripts globais -->
+  {% block scripts %}{% endblock %}
+</body>
+</html>
