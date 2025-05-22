@@ -12,6 +12,8 @@ from app.core.routes import auth_routes, user_routes, profile_routes, user_inter
 from app.financeiro.routes import financeiro_routes
 from app.vendas.controllers import cliente_controller, oportunidade_controller
 from app.estoque.routes import estoque_routes
+from app.dashboard import init_app as init_dashboard
+from app.export import routes as export_routes
 
 # Blueprints API RESTful (v1) - já são objetos Blueprint
 from app.api.v1 import auth_api, financeiro_api, vendas_api, estoque_api
@@ -59,6 +61,12 @@ def register_blueprints(app: Flask) -> None:
         app.register_blueprint(oportunidade_controller.bp)
         app.register_blueprint(estoque_routes.bp)
         app.register_blueprint(user_interface_routes.user_interface)
+        
+        # Inicializa o módulo de dashboard
+        init_dashboard(app)
+        
+        # Inicializa o módulo de exportação
+        export_routes.init_app(app)
 
         # Blueprints API RESTful (v1) - diretamente os objetos Blueprint
         app.register_blueprint(auth_api, url_prefix="/api/v1")

@@ -1,0 +1,197 @@
+{% extends "shared/templates/base.html" %}
+
+{% block title %}Exportação de Dados - EasyERP{% endblock %}
+
+{% block head %}
+<style>
+  .export-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .export-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .export-header {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+  }
+  
+  .export-header h1 {
+    color: #2c3e50;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+  
+  .export-header p {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+  }
+  
+  .module-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .module-card {
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .module-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .module-card h2 {
+    color: #34495e;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .module-card p {
+    color: #7f8c8d;
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+  }
+  
+  .export-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .btn {
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-csv {
+    background-color: #27ae60;
+    color: white;
+  }
+  
+  .btn-csv:hover {
+    background-color: #219653;
+  }
+  
+  .btn-excel {
+    background-color: #2980b9;
+    color: white;
+  }
+  
+  .btn-excel:hover {
+    background-color: #2471a3;
+  }
+  
+  .export-info {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #f1f8ff;
+    border-left: 4px solid #3498db;
+    border-radius: 4px;
+  }
+  
+  .export-info h3 {
+    color: #2980b9;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+  
+  .export-info ul {
+    padding-left: 20px;
+  }
+  
+  .export-info li {
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+  }
+  
+  @media (max-width: 768px) {
+    .module-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .export-buttons {
+      flex-direction: column;
+    }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="export-container">
+  <div class="export-card">
+    <div class="export-header">
+      <h1>Exportação de Dados</h1>
+      <p>Selecione o módulo e o formato para exportar os dados</p>
+    </div>
+    
+    <div class="module-grid">
+      <!-- Módulo Financeiro -->
+      <div class="module-card">
+        <h2>Financeiro</h2>
+        <p>Exportar dados de transações financeiras, contas e lançamentos.</p>
+        <div class="export-buttons">
+          <a href="/export/financeiro?format=csv" class="btn btn-csv">Exportar CSV</a>
+          <a href="/export/financeiro?format=excel" class="btn btn-excel">Exportar Excel</a>
+        </div>
+      </div>
+      
+      <!-- Módulo Vendas -->
+      <div class="module-card">
+        <h2>Vendas</h2>
+        <p>Exportar dados de clientes, oportunidades e produtos.</p>
+        <div class="export-buttons">
+          <a href="/export/vendas?format=csv" class="btn btn-csv">Exportar CSV</a>
+          <a href="/export/vendas?format=excel" class="btn btn-excel">Exportar Excel</a>
+        </div>
+      </div>
+      
+      <!-- Módulo Estoque -->
+      <div class="module-card">
+        <h2>Estoque</h2>
+        <p>Exportar dados de produtos, movimentações e inventário.</p>
+        <div class="export-buttons">
+          <a href="/export/estoque?format=csv" class="btn btn-csv">Exportar CSV</a>
+          <a href="/export/estoque?format=excel" class="btn btn-excel">Exportar Excel</a>
+        </div>
+      </div>
+      
+      <!-- Módulo Service Desk -->
+      <div class="module-card">
+        <h2>Service Desk</h2>
+        <p>Exportar dados de tickets, ativos e solicitações.</p>
+        <div class="export-buttons">
+          <a href="/export/service_desk?format=csv" class="btn btn-csv">Exportar CSV</a>
+          <a href="/export/service_desk?format=excel" class="btn btn-excel">Exportar Excel</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="export-info">
+      <h3>Informações sobre a exportação</h3>
+      <ul>
+        <li><strong>CSV</strong> - Formato de texto simples, compatível com a maioria dos softwares de planilha.</li>
+        <li><strong>Excel</strong> - Formato nativo do Microsoft Excel, preserva formatação e fórmulas.</li>
+        <li>Os arquivos exportados incluem um timestamp para evitar sobrescrever dados anteriores.</li>
+        <li>Para grandes volumes de dados, a exportação pode levar alguns segundos.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}
