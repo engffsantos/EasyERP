@@ -1,0 +1,30 @@
+{% extends "shared/templates/base.html" %}
+
+{% block title %}Detalhes do Ticket #{{ ticket.id }} - EasyERP{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header">
+      <h1>Detalhes do Ticket #{{ ticket.id }}</h1>
+    </div>
+    <div class="card-body">
+      <p><strong>Título:</strong> {{ ticket.titulo }}</p>
+      <p><strong>Descrição:</strong> {{ ticket.descricao | safe }}</p>
+      <p><strong>Status:</strong> <span class="badge bg-info">{{ ticket.status }}</span></p>
+      <p><strong>Prioridade:</strong> <span class="badge bg-warning">{{ ticket.prioridade }}</span></p>
+      <p><strong>Solicitante:</strong> {{ ticket.usuario.nome }}</p>
+      <p><strong>Criado em:</strong> {{ ticket.criado_em.strftime("%d/%m/%Y %H:%M") }}</p>
+      <p><strong>Atualizado em:</strong> {{ ticket.atualizado_em.strftime("%d/%m/%Y %H:%M") }}</p>
+      
+      {# Incluir a seção de anexos #}
+      {% include "shared/templates/components/attachments_section.html" with context %}
+      
+    </div>
+    <div class="card-footer">
+      <a href="{{ url_for("service_desk.list_tickets") }}" class="btn btn-secondary">Voltar para Lista</a>
+      {# Adicionar botão de edição se necessário #}
+    </div>
+  </div>
+</div>
+{% endblock %}

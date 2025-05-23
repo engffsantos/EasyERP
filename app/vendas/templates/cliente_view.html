@@ -1,0 +1,35 @@
+{% extends "shared/templates/base.html" %}
+
+{% block title %}Detalhes do Cliente: {{ cliente.nome }} - EasyERP{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header">
+      <h1>Detalhes do Cliente: {{ cliente.nome }}</h1>
+    </div>
+    <div class="card-body">
+      <p><strong>ID:</strong> {{ cliente.id }}</p>
+      <p><strong>Nome:</strong> {{ cliente.nome }}</p>
+      <p><strong>Email:</strong> {{ cliente.email if cliente.email else "N/A" }}</p>
+      <p><strong>Telefone:</strong> {{ cliente.telefone if cliente.telefone else "N/A" }}</p>
+      <p><strong>Empresa:</strong> {{ cliente.empresa if cliente.empresa else "N/A" }}</p>
+      <p><strong>Criado em:</strong> {{ cliente.criado_em.strftime("%d/%m/%Y %H:%M") }}</p>
+      <p><strong>Atualizado em:</strong> {{ cliente.atualizado_em.strftime("%d/%m/%Y %H:%M") }}</p>
+      
+      {# Incluir a seção de anexos #}
+      {% set parent_type = "cliente" %}
+      {% set parent_id = cliente.id %}
+      {% set attachments = cliente.attachments %}
+      {% set allowed_extensions = ["txt", "pdf", "png", "jpg", "jpeg", "gif", "doc", "docx", "xls", "xlsx", "ppt", "pptx"] %}
+      {% set max_size = 10 %} {# Exemplo: 10MB #}
+      {% include "shared/templates/components/attachments_section.html" %}
+      
+    </div>
+    <div class="card-footer">
+      <a href="{{ url_for("vendas.list_clientes") }}" class="btn btn-secondary">Voltar para Lista</a>
+      {# Adicionar botão de edição se necessário #}
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -10,7 +10,7 @@ from app.vendas.models.interacao import Interacao
 class Cliente(db.Model):
     __tablename__ = "clientes"
 
-    id = db.Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    id = db.Column(db.Integer, primary_key=True) # Alterado para Integer para compatibilidade com Attachment
     nome = db.Column(db.String(255), nullable=False)
     email = db.Column(db.String(255), nullable=True)
     telefone = db.Column(db.String(50), nullable=True)
@@ -22,6 +22,9 @@ class Cliente(db.Model):
     # Relacionamentos com uso de back_populates
     oportunidades = db.relationship("Oportunidade", back_populates="cliente", lazy=True)
     interacoes = db.relationship("Interacao", backref="cliente", lazy=True)
+    
+    # Relacionamento com Anexos
+    attachments = db.relationship("Attachment", backref="cliente", lazy="dynamic")
 
     def __repr__(self):
         return f"<Cliente {self.nome}>"
