@@ -1,0 +1,96 @@
+{% extends "shared/templates/base.html" %}
+{% from "shared/templates/components/pagination.html" import render_pagination %}
+
+{% block title %}Logs de Auditoria - Administração{% endblock %}
+
+{% block head %}
+<style>
+  .details-col {
+    max-width: 300px; /* Limita a largura da coluna de detalhes */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .details-col:hover {
+    overflow: visible;
+    white-space: normal;
+    word-wrap: break-word;
+  }
+  .filter-form .form-control, .filter-form .btn {
+      margin-bottom: 10px; /* Espaçamento inferior para filtros */
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header">
+      <h1>Logs de Auditoria</h1>
+      <p>Visualização dos eventos registrados no sistema.</p>
+    </div>
+    <div class="card-body">
+      
+      {# Formulário de Filtros #}
+      <form method="get" action="{{ url_for("admin_audit.list_logs") }}" class="mb-4 filter-form row gx-3 gy-2 align-items-center">
+        <div class="col-sm-3">
+          <label class="visually-hidden" for="user_id">ID do Usuário</label>
+          <input type="text" class="form-control" id="user_id" name="user_id" placeholder="ID do Usuário" value="{{ request.args.get("user_id", "") }}">
+        </div>
+        <div class="col-sm-3">
+          <label class="visually-hidden" for="action">Ação</label>
+          <input type="text" class="form-control" id="action" name="action" placeholder="Ação (ex: login)" value="{{ request.args.get("action", "") }}">
+        </div>
+        <div class="col-sm-3">
+          <label class="visually-hidden" for="target_type">Tipo do Alvo</label>
+          <input type="text" class="form-control" id="target_type" name="target_type" placeholder="Tipo do Alvo (ex: Ticket)" value="{{ request.args.get("target_type", "") }}">
+        </div>
+        <div class="col-auto">
+          <button type="submit" class="btn btn-primary">Filtrar</button>
+          <a href="{{ url_for("admin_audit.list_logs") }}" class="btn btn-secondary">Limpar</a>
+        </div>
+      </form>
+      
+      {# Tabela de Logs #}
+      <div class="table-responsive">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>Timestamp</th>
+              <th>Usuário ID</th>
+              <th>IP</th>
+              <th>Ação</th>
+              <th>Tipo Alvo</th>
+              <th>ID Alvo</th>
+              <th class="details-col">Detalhes</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% if logs %}
+              {% for log in logs %}
+                <tr>
+                  <td>{{ log.timestamp.strftime("%d/%m/%Y %H:%M:%S") }}</td>
+                  <td>{{ log.user_id if log.user_id else "Sistema" }}</td>
+                  <td>{{ log.ip_address }}</td>
+                  <td>{{ log.action }}</td>
+                  <td>{{ log.target_type if log.target_type else "-" }}</td>
+                  <td>{{ log.target_id if log.target_id else "-" }}</td>
+                  <td class="details-col" title="{{ log.details }}">{{ log.details if log.details else "-" }}</td>
+                </tr>
+              {% endfor %}
+            {% else %}
+              <tr>
+                <td colspan="7" class="text-center text-muted">Nenhum log encontrado com os filtros aplicados.</td>
+              </tr>
+            {% endif %}
+          </tbody>
+        </table>
+      </div>
+      
+      {# Paginação #}
+      {{ render_pagination(pagination, "admin_audit.list_logs", request.args) }}
+      
+    </div>
+  </div>
+</div>
+{% endblock %}

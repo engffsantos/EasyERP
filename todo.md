@@ -1,4 +1,4 @@
-# Lista de Tarefas - Implementação de Upload e Visualização de Anexos
+# Lista de Tarefas - Implementação de Auditoria Visual na Interface Administrativa
 
 ## Análise do Projeto
 - [x] Acessar o repositório EasyERP
@@ -6,21 +6,21 @@
 - [x] Ler e interpretar o arquivo docs/roadmap.md
 
 ## Planejamento do Próximo Passo
-- [x] Identificar qual item da Versão 1.1 implementar
-- [x] Verificar arquivos relacionados à funcionalidade de anexos (módulos Service Desk e Vendas/Clientes)
-- [x] Planejar a implementação do upload e visualização de anexos
+- [x] Identificar qual item da Versão 1.1 implementar (Auditoria Visual)
+- [x] Verificar arquivos relacionados à funcionalidade de auditoria e interface administrativa
+- [x] Planejar a implementação da visualização dos logs de auditoria
 
 ## Implementação
-- [x] Modificar modelos de dados (Ticket, Cliente) para suportar anexos
-- [x] Criar rotas e controladores para upload de arquivos
-- [x] Implementar a lógica de armazenamento seguro dos arquivos
-- [x] Atualizar templates para incluir formulário de upload
-- [x] Implementar a visualização dos anexos na interface
+- [x] Criar/Adaptar modelo de dados para logs de auditoria (se necessário)
+- [x] Implementar a lógica de registro de logs de auditoria em ações relevantes (login, criação/edição/exclusão de dados)
+- [x] Criar rotas e controladores para a interface administrativa de auditoria
+- [x] Desenvolver o template para exibir os logs de auditoria de forma clara e filtrável
+- [x] Integrar a nova seção de auditoria na interface administrativa existente
 
 ## Validação
-- [x] Testar o upload de diferentes tipos de arquivos
-- [x] Verificar se os arquivos são armazenados corretamente
-- [x] Testar a visualização dos anexos
+- [x] Testar o registro de logs para diferentes ações
+- [x] Verificar se os logs são exibidos corretamente na interface
+- [x] Testar filtros e paginação (se implementados)
 - [x] Verificar se há bugs ou problemas de segurança
 - [x] Validar que a implementação atende aos requisitos
 

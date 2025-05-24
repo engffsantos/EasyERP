@@ -15,6 +15,7 @@ from app.estoque.routes import estoque_routes
 from app.dashboard import init_app as init_dashboard
 from app.export import routes as export_routes
 from app.shared.routes import attachment_routes
+from app.admin.routes import audit_routes as admin_audit_routes
 
 # Blueprints API RESTful (v1) - já são objetos Blueprint
 from app.api.v1 import auth_api, financeiro_api, vendas_api, estoque_api
@@ -71,7 +72,9 @@ def register_blueprints(app: Flask) -> None:
         
         # Inicializa o módulo de anexos
         attachment_routes.init_app(app)
-        app.register_blueprint(auth_api, url_prefix="/api/v1")
+        
+        # Inicializa o módulo de auditoria administrativa
+        admin_audit_routes.init_app(app)
         app.register_blueprint(financeiro_api, url_prefix="/api/v1")
         app.register_blueprint(vendas_api, url_prefix="/api/v1")
         app.register_blueprint(estoque_api, url_prefix="/api/v1")
