@@ -22,6 +22,15 @@ class Config:
     # Diretório de uploads, se necessário
     UPLOAD_FOLDER = os.path.join(BASE_DIR, "..", "uploads")
 
+    # Configurações Flask-Mail (usar variáveis de ambiente em produção)
+    MAIL_SERVER = os.environ.get("MAIL_SERVER", "smtp.mailtrap.io") # Ex: smtp.googlemail.com
+    MAIL_PORT = int(os.environ.get("MAIL_PORT", 2525)) # Ex: 587
+    MAIL_USE_TLS = os.environ.get("MAIL_USE_TLS", "true").lower() in ["true", "1", "t"]
+    MAIL_USE_SSL = os.environ.get("MAIL_USE_SSL", "false").lower() in ["true", "1", "t"]
+    MAIL_USERNAME = os.environ.get("MAIL_USERNAME", "seu_usuario_mailtrap") # Ex: seu_email@gmail.com
+    MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD", "sua_senha_mailtrap") # Ex: sua_senha_app
+    MAIL_DEFAULT_SENDER = os.environ.get("MAIL_DEFAULT_SENDER", "EasyERP <noreply@easyerp.com>")
+
 
 class DevelopmentConfig(Config):
     """Configurações para desenvolvimento"""

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirme seu E-mail - EasyERP</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #0056b3;
+            text-align: center;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        .button {
+            display: inline-block;
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 15px;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bem-vindo(a) ao EasyERP!</h1>
+        <p>Olá {{ user.nome }},</p>
+        <p>Obrigado por se registrar no EasyERP. Para ativar sua conta, por favor, clique no botão abaixo para confirmar seu endereço de e-mail:</p>
+        <p style="text-align: center;">
+            <a href="{{ confirmation_url }}" class="button">Confirmar Meu E-mail</a>
+        </p>
+        <p>Se o botão não funcionar, copie e cole o seguinte link no seu navegador:</p>
+        <p><a href="{{ confirmation_url }}">{{ confirmation_url }}</a></p>
+        <p>Este link de confirmação expirará em 1 hora.</p>
+        <p>Se você não criou uma conta no EasyERP, por favor, ignore este e-mail.</p>
+        <p>Atenciosamente,<br>Equipe EasyERP</p>
+    </div>
+    <div class="footer">
+        <p>&copy; {{ current_year }} EasyERP. Todos os direitos reservados.</p>
+    </div>
+</body>
+</html>

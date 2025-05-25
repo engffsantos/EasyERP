@@ -4,7 +4,7 @@ from flask_cors import CORS
 from werkzeug.exceptions import HTTPException
 
 from app.config import config_by_name
-from app.extensions import db, migrate, jwt, ma
+from app.extensions import db, migrate, jwt, ma, mail
 from app.shared.logging.config import configure_logging
 
 # Blueprints Web
@@ -33,11 +33,12 @@ def create_app(env: str = "development") -> Flask:
     # Configuração de logs centralizada
     configure_logging(app)
 
-    # Inicialização das extensões principais
+    #     # Inicializa as extensões
     db.init_app(app)
     migrate.init_app(app, db)
     jwt.init_app(app)
     ma.init_app(app)
+    mail.init_app(app) # Inicializa Flask-Mailapp(app)
     CORS(app)
 
     # Registro de rotas (Web e API)

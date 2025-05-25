@@ -1,4 +1,4 @@
-# Lista de Tarefas - Implementação de Auditoria Visual na Interface Administrativa
+# Lista de Tarefas - Implementação de Confirmação por E-mail para Novo Usuário
 
 ## Análise do Projeto
 - [x] Acessar o repositório EasyERP
@@ -6,22 +6,24 @@
 - [x] Ler e interpretar o arquivo docs/roadmap.md
 
 ## Planejamento do Próximo Passo
-- [x] Identificar qual item da Versão 1.1 implementar (Auditoria Visual)
-- [x] Verificar arquivos relacionados à funcionalidade de auditoria e interface administrativa
-- [x] Planejar a implementação da visualização dos logs de auditoria
+- [x] Identificar qual item da Versão 1.1 implementar (Confirmação por E-mail)
+- [x] Verificar arquivos relacionados à funcionalidade de criação de usuários e envio de e-mails
+- [x] Planejar a implementação da confirmação por e-mail
 
 ## Implementação
-- [x] Criar/Adaptar modelo de dados para logs de auditoria (se necessário)
-- [x] Implementar a lógica de registro de logs de auditoria em ações relevantes (login, criação/edição/exclusão de dados)
-- [x] Criar rotas e controladores para a interface administrativa de auditoria
-- [x] Desenvolver o template para exibir os logs de auditoria de forma clara e filtrável
-- [x] Integrar a nova seção de auditoria na interface administrativa existente
+- [x] Configurar serviço de envio de e-mails (ex: Flask-Mail, SendGrid, etc.)
+- [x] Modificar modelo de dados `User` para incluir status de confirmação e token
+- [x] Gerar token de confirmação seguro
+- [x] Criar template de e-mail de confirmação
+- [x] Implementar lógica de envio de e-mail após criação do usuário
+- [x] Criar rota e controlador para processar o link de confirmação
+- [x] Atualizar fluxo de login para verificar status de confirmação
 
 ## Validação
-- [x] Testar o registro de logs para diferentes ações
-- [x] Verificar se os logs são exibidos corretamente na interface
-- [x] Testar filtros e paginação (se implementados)
-- [x] Verificar se há bugs ou problemas de segurança
+- [x] Testar a criação de usuário e o envio do e-mail
+- [x] Verificar se o link de confirmação funciona corretamente
+- [x] Testar o fluxo de login para usuários confirmados e não confirmados
+- [x] Verificar se há bugs ou problemas de segurança (ex: expiração do token)
 - [x] Validar que a implementação atende aos requisitos
 
 ## Documentação
