@@ -1,4 +1,4 @@
-# Lista de Tarefas - Implementação de Confirmação por E-mail para Novo Usuário
+# Lista de Tarefas - Melhorias nos Testes Automatizados (CI/CD)
 
 ## Análise do Projeto
 - [x] Acessar o repositório EasyERP
@@ -6,27 +6,27 @@
 - [x] Ler e interpretar o arquivo docs/roadmap.md
 
 ## Planejamento do Próximo Passo
-- [x] Identificar qual item da Versão 1.1 implementar (Confirmação por E-mail)
-- [x] Verificar arquivos relacionados à funcionalidade de criação de usuários e envio de e-mails
-- [x] Planejar a implementação da confirmação por e-mail
+- [x] Identificar qual item da Versão 1.1 implementar (Melhorias Testes/CI/CD)
+- [x] Analisar estrutura de testes existente (pasta /tests com unit/integration e conftest.py)
+- [x] Definir estratégia e ferramentas para testes e CI/CD (pytest, GitHub Actions)
+- [x] Planejar a implementação do pipeline de CI/CD e adição/melhoria de testes
 
 ## Implementação
-- [x] Configurar serviço de envio de e-mails (ex: Flask-Mail, SendGrid, etc.)
-- [x] Modificar modelo de dados `User` para incluir status de confirmação e token
-- [x] Gerar token de confirmação seguro
-- [x] Criar template de e-mail de confirmação
-- [x] Implementar lógica de envio de e-mail após criação do usuário
-- [x] Criar rota e controlador para processar o link de confirmação
-- [x] Atualizar fluxo de login para verificar status de confirmação
+- [x] Configurar ambiente de testes (ex: dependências, banco de dados de teste)
+- [x] Escrever/Melhorar testes unitários e de integração para funcionalidades chave (ex: auth flow)
+- [x] Criar arquivo de configuração do pipeline de CI/CD (ex: `.github/workflows/ci.yml`)
+- [x] Definir etapas do pipeline (checkout, setup python, install deps, lint, test)
+- [x] Implementar execução de linters (ex: flake8)
+- [x] Implementar execução dos testes automatizados no pipeline
 
 ## Validação
-- [x] Testar a criação de usuário e o envio do e-mail
-- [x] Verificar se o link de confirmação funciona corretamente
-- [x] Testar o fluxo de login para usuários confirmados e não confirmados
-- [x] Verificar se há bugs ou problemas de segurança (ex: expiração do token)
-- [x] Validar que a implementação atende aos requisitos
+- [x] Executar testes localmente para garantir que passam
+- [x] Acionar o pipeline de CI/CD (ex: via push para branch de teste)
+- [x] Verificar se todas as etapas do pipeline são executadas com sucesso
+- [x] Analisar relatórios de testes e linting gerados pelo pipeline
+- [x] Validar que a implementação atende aos requisitos de automação
 
 ## Documentação
-- [x] Atualizar a documentação com a nova funcionalidade
+- [x] Atualizar a documentação com informações sobre testes e CI/CD
 - [x] Marcar o item como concluído no roadmap
 - [x] Preparar relatório de implementação para o usuário

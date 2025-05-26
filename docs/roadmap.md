@@ -31,13 +31,13 @@ Este documento apresenta o plano de evolução do EasyERP com base nas necessida
 
 ### Melhorias previstas:
 
-- [ ] Dashboard de BI com gráficos (D3.js, Chart.js)
-- [ ] Filtros avançados por período, perfil e status
-- [ ] Exportação de dados CSV/Excel por módulo
-- [ ] Upload e visualização de anexos em tickets e clientes
-- [ ] Auditoria visual em interface administrativa
-- [ ] Confirmação por e-mail para novo usuário
-- [ ] Melhorias nos testes automatizados (CI/CD)
+- [x] Dashboard de BI com gráficos (D3.js, Chart.js)
+- [x] Filtros avançados por período, perfil e status
+- [x] Exportação de dados CSV/Excel por módulo
+- [x] Upload e visualização de anexos em tickets e clientes
+- [x] Auditoria visual em interface administrativa
+- [x] Confirmação por e-mail para novo usuário
+- [x] Melhorias nos testes automatizados (CI/CD)
 
 ---
 
